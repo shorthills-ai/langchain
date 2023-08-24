@@ -28,6 +28,27 @@ def test_write_file_errs_outside_root_dir() -> None:
         )
 
 
+def test_write_json_file_errs_outside_root_dir() -> None:
+    """Test the WriteFile tool when a root dir is specified."""
+    with TemporaryDirectory() as temp_dir:
+        tool = WriteFileTool(root_dir=temp_dir)
+        result = tool.run(
+            {"file_path": "../file.json", "text": "{'key' : 'Hello, world!'}"}
+        )
+        assert result == INVALID_PATH_TEMPLATE.format(
+            arg_name="file_path", value="../file.json"
+        )
+
+
+def test_write_json_file_with_root_dir() -> None:
+    """Test the WriteFile tool when a root dir is specified."""
+    with TemporaryDirectory() as temp_dir:
+        tool = WriteFileTool(root_dir=temp_dir)
+        tool.run({"file_path": "file.json", "text": "{'key' : 'Hello, world!'}"})
+        assert (Path(temp_dir) / "file.json").exists()
+        assert (Path(temp_dir) / "file.json").read_text() == "{'key' : 'Hello, world!'}"
+
+
 def test_write_file() -> None:
     """Test the WriteFile tool."""
     with TemporaryDirectory() as temp_dir:
