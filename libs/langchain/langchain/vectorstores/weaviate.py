@@ -99,7 +99,7 @@ class Weaviate(VectorStore):
         try:
             import weaviate
         except ImportError:
-            raise ImportError(
+            raise ValueError(
                 "Could not import weaviate python package. "
                 "Please install it with `pip install weaviate-client`."
             )
