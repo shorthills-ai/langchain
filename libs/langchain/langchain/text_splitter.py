@@ -215,7 +215,7 @@ class TextSplitter(BaseDocumentTransformer, ABC):
                 return len(tokenizer.encode(text))
 
         except ImportError:
-            raise ValueError(
+            raise ImportError(
                 "Could not import transformers python package. "
                 "Please install it with `pip install transformers`."
             )
