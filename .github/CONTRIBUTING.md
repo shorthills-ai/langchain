@@ -306,4 +306,4 @@ even patch releases may contain [non-backwards-compatible changes](https://semve
 ### 🌟 Recognition
 
 If your contribution has made its way into a release, we will want to give you credit on Twitter (only if you want though)!
-If you have a Twitter account you would like us to mention, please let us know in the PR or in another manner.
+If you have a Twitter account you would like us to mention, please let us know in the pull request (PR) or in another manner.
