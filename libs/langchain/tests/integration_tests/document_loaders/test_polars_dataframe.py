@@ -1,12 +1,20 @@
-import polars as pl
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 import pytest
 
 from langchain.document_loaders import PolarsDataFrameLoader
 from langchain.schema import Document
 
+if TYPE_CHECKING:
+    import polars as pl
+
 
 @pytest.fixture
 def sample_data_frame() -> pl.DataFrame:
+    import polars as pl
+
     data = {
         "text": ["Hello", "World"],
         "author": ["Alice", "Bob"],

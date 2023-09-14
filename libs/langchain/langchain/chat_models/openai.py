@@ -307,12 +307,18 @@ class ChatOpenAI(BaseChatModel):
         ):
             if len(chunk["choices"]) == 0:
                 continue
-            delta = chunk["choices"][0]["delta"]
-            chunk = _convert_delta_to_message_chunk(delta, default_chunk_class)
+            choice = chunk["choices"][0]
+            chunk = _convert_delta_to_message_chunk(
+                choice["delta"], default_chunk_class
+            )
+            finish_reason = choice.get("finish_reason")
+            generation_info = (
+                dict(finish_reason=finish_reason) if finish_reason is not None else None
+            )
             default_chunk_class = chunk.__class__
-            yield ChatGenerationChunk(message=chunk)
+            yield ChatGenerationChunk(message=chunk, generation_info=generation_info)
             if run_manager:
-                run_manager.on_llm_new_token(chunk.content)
+                run_manager.on_llm_new_token(chunk.content, chunk=chunk)
 
     def _generate(
         self,
@@ -322,7 +328,8 @@ class ChatOpenAI(BaseChatModel):
         stream: Optional[bool] = None,
         **kwargs: Any,
     ) -> ChatResult:
-        if stream if stream is not None else self.streaming:
+        should_stream = stream if stream is not None else self.streaming
+        if should_stream:
             generation: Optional[ChatGenerationChunk] = None
             for chunk in self._stream(
                 messages=messages, stop=stop, run_manager=run_manager, **kwargs
@@ -392,7 +399,7 @@ class ChatOpenAI(BaseChatModel):
             default_chunk_class = chunk.__class__
             yield ChatGenerationChunk(message=chunk, generation_info=generation_info)
             if run_manager:
-                await run_manager.on_llm_new_token(chunk.content)
+                await run_manager.on_llm_new_token(token=chunk.content, chunk=chunk)
 
     async def _agenerate(
         self,
@@ -402,7 +409,8 @@ class ChatOpenAI(BaseChatModel):
         stream: Optional[bool] = None,
         **kwargs: Any,
     ) -> ChatResult:
-        if stream if stream is not None else self.streaming:
+        should_stream = stream if stream is not None else self.streaming
+        if should_stream:
             generation: Optional[ChatGenerationChunk] = None
             async for chunk in self._astream(
                 messages=messages, stop=stop, run_manager=run_manager, **kwargs

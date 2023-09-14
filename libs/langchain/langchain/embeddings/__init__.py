@@ -19,6 +19,7 @@ from langchain.embeddings.aleph_alpha import (
     AlephAlphaSymmetricSemanticEmbedding,
 )
 from langchain.embeddings.awa import AwaEmbeddings
+from langchain.embeddings.baidu_qianfan_endpoint import QianfanEmbeddingsEndpoint
 from langchain.embeddings.bedrock import BedrockEmbeddings
 from langchain.embeddings.cache import CacheBackedEmbeddings
 from langchain.embeddings.clarifai import ClarifaiEmbeddings
@@ -35,6 +36,7 @@ from langchain.embeddings.gpt4all import GPT4AllEmbeddings
 from langchain.embeddings.huggingface import (
     HuggingFaceBgeEmbeddings,
     HuggingFaceEmbeddings,
+    HuggingFaceInferenceAPIEmbeddings,
     HuggingFaceInstructEmbeddings,
 )
 from langchain.embeddings.huggingface_hub import HuggingFaceHubEmbeddings
@@ -69,6 +71,7 @@ __all__ = [
     "CohereEmbeddings",
     "ElasticsearchEmbeddings",
     "HuggingFaceEmbeddings",
+    "HuggingFaceInferenceAPIEmbeddings",
     "JinaEmbeddings",
     "LlamaCppEmbeddings",
     "HuggingFaceHubEmbeddings",
@@ -103,6 +106,7 @@ __all__ = [
     "AwaEmbeddings",
     "HuggingFaceBgeEmbeddings",
     "ErnieEmbeddings",
+    "QianfanEmbeddingsEndpoint",
 ]
 
 
