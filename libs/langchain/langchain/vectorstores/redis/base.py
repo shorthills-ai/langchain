@@ -351,7 +351,7 @@ class Redis(VectorStore):
                 the newly created documents.
 
         Raises:
-            ValueError: If the number of metadatas does not match the number of texts.
+            : If the number of metadatas does not match the number of texts.
         """
         try:
             # TODO use importlib to check if redis is installed
@@ -386,9 +386,9 @@ class Redis(VectorStore):
         # type check for metadata
         if metadatas:
             if isinstance(metadatas, list) and len(metadatas) != len(texts):  # type: ignore  # noqa: E501
-                raise ValueError("Number of metadatas must match number of texts")
+                raise ("Number of metadatas must match number of texts")
             if not (isinstance(metadatas, list) and isinstance(metadatas[0], dict)):
-                raise ValueError("Metadatas must be a list of dicts")
+                raise ("Metadatas must be a list of dicts")
 
             generated_schema = _generate_field_schema(metadatas[0])
             if index_schema:
@@ -491,7 +491,7 @@ class Redis(VectorStore):
             Redis: Redis VectorStore instance.
 
         Raises:
-            ValueError: If the number of metadatas does not match the number of texts.
+            : If the number of metadatas does not match the number of texts.
             ImportError: If the redis python package is not installed.
         """
         instance, _ = cls.from_texts_return_keys(
@@ -540,7 +540,7 @@ class Redis(VectorStore):
             Redis: Redis VectorStore instance.
 
         Raises:
-            ValueError: If the index does not exist.
+            : If the index does not exist.
             ImportError: If the redis python package is not installed.
         """
         redis_url = get_from_dict_or_env(kwargs, "redis_url", "REDIS_URL")
@@ -557,7 +557,7 @@ class Redis(VectorStore):
                 client, index_name
             ), f"Index {index_name} does not exist"
         except Exception as e:
-            raise ValueError(f"Redis failed to connect: {e}")
+            raise (f"Redis failed to connect: {e}")
 
         return cls(
             redis_url,
@@ -799,7 +799,7 @@ class Redis(VectorStore):
             import redis
 
         except ImportError as e:
-            raise ImportError(
+            raise ValueError(
                 "Could not import redis python package. "
                 "Please install it with `pip install redis`."
             ) from e
