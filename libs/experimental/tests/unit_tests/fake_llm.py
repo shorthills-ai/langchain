@@ -41,7 +41,7 @@ class FakeLLM(LLM):
         **kwargs: Any,
     ) -> str:
         if self.sequential_responses:
-            return self._get_next_response_in_sequence
+            return self._get_next_response_in_sequence()
 
         if self.queries is not None:
             return self.queries[prompt]
