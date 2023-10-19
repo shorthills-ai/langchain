@@ -77,7 +77,7 @@ def _parse_python_function_docstring(function: Callable) -> Tuple[str, dict]:
 
 
 def _get_python_function_arguments(function: Callable, arg_descriptions: dict) -> dict:
-    """Get JsonSchema describing a Python functions arguments.
+    """Get Json Schema describing a Python functions arguments.
 
     Assumes all function arguments are of primitive types (int, float, str, bool) or
     are subclasses of pydantic.BaseModel.

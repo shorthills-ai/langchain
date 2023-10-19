@@ -27,7 +27,7 @@ def create_openai_data_generator(
 
     Args:
         output_schema (Union[Dict[str, Any], Type[BaseModel]]): Schema for expected
-        output. This can be either a dictionary representing a valid JsonSchema or a
+        output. This can be either a dictionary representing a valid Json Schema or a
         Pydantic BaseModel class.
 
 
