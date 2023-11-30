@@ -201,7 +201,7 @@ ignore-words-list = 'momento,collison,ned,foor,reworkd,parth,whats,aapply,mysogy
 
 Langchain relies heavily on optional dependencies to keep the LangChain package lightweight.
 
-If you're adding a new dependency to LangChain, assume that it will be an optional dependency, and
+If you're adding a new dependency to Langchain, assume that it will be an optional dependency, and
 that most users won't have it installed.
 
 Users who do not have the dependency installed should be able to **import** your code without
