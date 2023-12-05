@@ -9,7 +9,7 @@ TEST_FILE ?= tests/unit_tests/
 test:
 	poetry run pytest $(TEST_FILE)
 
-tests: 
+tests:
 	poetry run pytest $(TEST_FILE)
 
 test_watch:
@@ -32,12 +32,13 @@ lint format: PYTHON_FILES=.
 lint_diff format_diff: PYTHON_FILES=$(shell git diff --relative=libs/experimental --name-only --diff-filter=d master | grep -E '\.py$$|\.ipynb$$')
 
 lint lint_diff:
-	poetry run mypy $(PYTHON_FILES)
-	poetry run black $(PYTHON_FILES) --check
 	poetry run ruff .
+	poetry run ruff format $(PYTHON_FILES) --diff
+	poetry run ruff --select I $(PYTHON_FILES)
+	poetry run mypy $(PYTHON_FILES)
 
 format format_diff:
-	poetry run black $(PYTHON_FILES)
+	poetry run ruff format $(PYTHON_FILES)
 	poetry run ruff --select I --fix $(PYTHON_FILES)
 
 spell_check:

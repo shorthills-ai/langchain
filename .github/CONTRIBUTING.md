@@ -23,7 +23,7 @@ It's essential that we maintain great documentation and testing. If you:
   - Update any affected example notebooks and documentation. These live in `docs`.
   - Update unit and integration tests when relevant.
 - Add a feature
-  - Add a demo notebook in `docs/modules`.
+  - Add a demo notebook in `docs/docs/`.
   - Add unit and integration tests.
 
 We are a small, progress-oriented team. If there's something you'd like to add or change, opening a pull request is the
@@ -134,7 +134,7 @@ Run these locally before submitting a PR; the CI system will check also.
 
 #### Code Formatting
 
-Formatting for this project is done via a combination of [Black](https://black.readthedocs.io/en/stable/) and [ruff](https://docs.astral.sh/ruff/rules/).
+Formatting for this project is done via [ruff](https://docs.astral.sh/ruff/rules/).
 
 To run formatting for docs, cookbook and templates:
 
@@ -159,7 +159,7 @@ This is especially useful when you have made changes to a subset of the project 
 
 #### Linting
 
-Linting for this project is done via a combination of [Black](https://black.readthedocs.io/en/stable/), [ruff](https://docs.astral.sh/ruff/rules/), and [mypy](http://mypy-lang.org/).
+Linting for this project is done via a combination of [ruff](https://docs.astral.sh/ruff/rules/) and [mypy](http://mypy-lang.org/).
 
 To run linting for docs, cookbook and templates:
 
@@ -214,7 +214,11 @@ ignore-words-list = 'momento,collison,ned,foor,reworkd,parth,whats,aapply,mysogy
 
 Langchain relies heavily on optional dependencies to keep the LangChain package lightweight.
 
-If you're adding a new dependency to LangChain, assume that it will be an optional dependency, and
+You only need to add a new dependency if a **unit test** relies on the package.
+If your package is only required for **integration tests**, then you can skip these
+steps and leave all pyproject.toml and poetry.lock files alone.
+
+If you're adding a new dependency to Langchain, assume that it will be an optional dependency, and
 that most users won't have it installed.
 
 Users who do not have the dependency installed should be able to **import** your code without
@@ -302,8 +306,8 @@ make api_docs_linkcheck
 
 ### Verify Documentation changes
 
-After pushing documentation changes to the repository, you can preview and verify that the changes are 
-what you wanted by clicking the `View deployment` or `Visit Preview` buttons on the pull request `Conversation` page. 
+After pushing documentation changes to the repository, you can preview and verify that the changes are
+what you wanted by clicking the `View deployment` or `Visit Preview` buttons on the pull request `Conversation` page.
 This will take you to a preview of the documentation changes.
 This preview is created by [Vercel](https://vercel.com/docs/getting-started-with-vercel).
 

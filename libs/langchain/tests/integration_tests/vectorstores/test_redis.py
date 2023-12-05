@@ -3,8 +3,8 @@ import os
 from typing import Any, Dict, List, Optional
 
 import pytest
+from langchain_core.documents import Document
 
-from langchain.docstore.document import Document
 from langchain.vectorstores.redis import (
     Redis,
     RedisFilter,
@@ -368,7 +368,10 @@ def test_max_marginal_relevance_search(texts: List[str]) -> None:
     assert mmr_output[1].page_content == texts[1]
 
     mmr_output = docsearch.max_marginal_relevance_search(
-        texts[0], k=2, fetch_k=3, lambda_mult=0.1  # more diversity
+        texts[0],
+        k=2,
+        fetch_k=3,
+        lambda_mult=0.1,  # more diversity
     )
     assert len(mmr_output) == 2
     assert mmr_output[0].page_content == texts[0]
