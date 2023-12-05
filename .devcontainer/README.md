@@ -17,7 +17,7 @@ For more info, check out the [GitHub documentation](https://docs.github.com/en/f
 ## VS Code Dev Containers
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/langchain-ai/langchain)
 
-Note: If you click the link above you will open the main repo (langchain-ai/langchain) and not your local cloned repo. This is fine if you only want to run and test the library, but if you want to contribute you can use the  link below and replace with your username and cloned repo name: 
+Note: If you click the link above you will open the main repo (langchain-ai/langchain) and not your local cloned repo. This is fine if you only want to run and test the library, but if you want to contribute you can use the  link below and replace it with your username and cloned repo name: 
 ```
 https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/<yourusername>/<yourclonedreponame>
 
@@ -26,9 +26,9 @@ Then you will have a local cloned repo where you can contribute and then create 
 
 If you already have VS Code and Docker installed, you can use the button above to get started. This will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
 
-Alternatively you can also follow these steps to open this repo in a container using the VS Code Dev Containers extension:
+Alternatively, you can also follow these steps to open this repo in a container using the VS Code Dev Containers extension:
 
-1. If this is your first time using a development container, please ensure your system meets the pre-reqs (i.e. have Docker installed) in the [getting started steps](https://aka.ms/vscode-remote/containers/getting-started).
+1. If this is your first time using a development container, please ensure your system meets the pre-requesites (i.e. have Docker installed) in the [getting started steps](https://aka.ms/vscode-remote/containers/getting-started).
 
 2. Open a locally cloned copy of the code:
 
@@ -40,5 +40,5 @@ You can learn more in the [Dev Containers documentation](https://code.visualstud
 
 ## Tips and tricks
 
-* If you are working with the same repository folder in a container and Windows, you'll want consistent line endings (otherwise you may see hundreds of changes in the SCM view). The `.gitattributes` file in the root of this repo will disable line ending conversion and should prevent this. See [tips and tricks](https://code.visualstudio.com/docs/devcontainers/tips-and-tricks#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for more info.
+* If you are working with the same repository folder in a container and Windows, you'll want consistent line endings (otherwise you may see hundreds of changes in the SCM view). The `.gitattributes` file in the root of this repo will disable line-ending conversion and should prevent this. See [tips and tricks](https://code.visualstudio.com/docs/devcontainers/tips-and-tricks#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for more info.
 * If you'd like to review the contents of the image used in this dev container, you can check it out in the [devcontainers/images](https://github.com/devcontainers/images/tree/main/src/python) repo.
