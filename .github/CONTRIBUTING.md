@@ -3,31 +3,17 @@
 Hi there! Thank you for even being interested in contributing to LangChain.
 As an open-source project in a rapidly developing field, we are extremely open to contributions, whether they involve new features, improved infrastructure, better documentation, or bug fixes.
 
+To learn about how to contribute, please follow the [guides here](https://python.langchain.com/docs/contributing/)
+
 ## 🗺️ Guidelines
 
-### 👩‍💻 Contributing Code
+### 👩‍💻 Ways to contribute
 
-To contribute to this project, please follow the ["fork and pull request"](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) workflow.
-Please do not try to push directly to this repo unless you are a maintainer.
+There are many ways to contribute to LangChain. Here are some common ways people contribute:
 
-Please follow the checked-in pull request template when opening pull requests. Note related issues and tag relevant
-maintainers.
-
-Pull requests cannot land without passing the formatting, linting, and testing checks first. See [Testing](#testing) and
-[Formatting and Linting](#formatting-and-linting) for how to run these checks locally.
-
-It's essential that we maintain great documentation and testing. If you:
-- Fix a bug
-  - Add a relevant unit or integration test when possible. These live in `tests/unit_tests` and `tests/integration_tests`.
-- Make an improvement
-  - Update any affected example notebooks and documentation. These live in `docs`.
-  - Update unit and integration tests when relevant.
-- Add a feature
-  - Add a demo notebook in `docs/docs/`.
-  - Add unit and integration tests.
-
-We are a small, progress-oriented team. If there's something you'd like to add or change, opening a pull request is the
-best way to get our attention.
+- [**Documentation**](https://python.langchain.com/docs/contributing/documentation): Help improve our docs, including this one!
+- [**Code**](https://python.langchain.com/docs/contributing/code): Help us write code, fix bugs, or improve our infrastructure.
+- [**Integrations**](https://python.langchain.com/docs/contributing/integration): Help us integrate with your favorite vendors and tools.
 
 ### 🚩GitHub Issues
 
@@ -53,6 +39,7 @@ smooth for future contributors.
 In a similar vein, we do enforce certain linting, formatting, and documentation standards in the codebase.
 If you are finding these difficult (or even just annoying) to work with, feel free to contact a maintainer for help -
 we do not want these to get in the way of getting good code into the codebase.
+
 
 ## 🚀 Quick Start
 
@@ -321,5 +308,7 @@ even patch releases may contain [non-backwards-compatible changes](https://semve
 
 ### 🌟 Recognition
 
-If your contribution has made its way into a release, we will want to give you credit on Twitter (only if you want though)!
-If you have a Twitter account you would like us to mention, please let us know in the PR or through another means.
+### Contributor Documentation
+
+
+To learn about how to contribute, please follow the [guides here](https://python.langchain.com/docs/contributing/)
