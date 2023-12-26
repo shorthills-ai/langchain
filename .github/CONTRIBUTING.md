@@ -40,4 +40,6 @@ In a similar vein, we do enforce certain linting, formatting, and documentation 
 If you are finding these difficult (or even just annoying) to work with, feel free to contact a maintainer for help -
 we do not want these to get in the way of getting good code into the codebase.
 
+### Contributor Documentation
+
 To learn about how to contribute, please follow the [guides here](https://python.langchain.com/docs/contributing/)
