@@ -18,7 +18,7 @@ tool for the job.
 """
 from typing import Any
 
-from langchain.tools.base import BaseTool, StructuredTool, Tool, tool
+from langchain_core.tools import BaseTool, StructuredTool, Tool, tool
 
 # Used for internal purposes
 _DEPRECATED_TOOLS = {"PythonAstREPLTool", "PythonREPLTool"}
@@ -284,6 +284,18 @@ def _import_google_serper_tool_GoogleSerperRun() -> Any:
     return GoogleSerperRun
 
 
+def _import_searchapi_tool_SearchAPIResults() -> Any:
+    from langchain.tools.searchapi.tool import SearchAPIResults
+
+    return SearchAPIResults
+
+
+def _import_searchapi_tool_SearchAPIRun() -> Any:
+    from langchain.tools.searchapi.tool import SearchAPIRun
+
+    return SearchAPIRun
+
+
 def _import_graphql_tool() -> Any:
     from langchain.tools.graphql.tool import BaseGraphQLTool
 
@@ -338,6 +350,12 @@ def _import_metaphor_search() -> Any:
     return MetaphorSearchResults
 
 
+def _import_nasa_tool() -> Any:
+    from langchain.tools.nasa.tool import NasaAction
+
+    return NasaAction
+
+
 def _import_office365_create_draft_message() -> Any:
     from langchain.tools.office365.create_draft_message import O365CreateDraftMessage
 
@@ -366,12 +384,6 @@ def _import_office365_send_message() -> Any:
     from langchain.tools.office365.send_message import O365SendMessage
 
     return O365SendMessage
-
-
-def _import_office365_utils() -> Any:
-    from langchain.tools.office365.utils import authenticate
-
-    return authenticate
 
 
 def _import_openapi_utils_api_models() -> Any:
@@ -532,6 +544,12 @@ def _import_requests_tool_RequestsPutTool() -> Any:
     from langchain.tools.requests.tool import RequestsPutTool
 
     return RequestsPutTool
+
+
+def _import_steam_webapi_tool() -> Any:
+    from langchain.tools.steam.tool import SteamWebAPIQueryRun
+
+    return SteamWebAPIQueryRun
 
 
 def _import_scenexplain_tool() -> Any:
@@ -807,6 +825,10 @@ def __getattr__(name: str) -> Any:
         return _import_google_serper_tool_GoogleSerperResults()
     elif name == "GoogleSerperRun":
         return _import_google_serper_tool_GoogleSerperRun()
+    elif name == "SearchAPIResults":
+        return _import_searchapi_tool_SearchAPIResults()
+    elif name == "SearchAPIRun":
+        return _import_searchapi_tool_SearchAPIRun()
     elif name == "BaseGraphQLTool":
         return _import_graphql_tool()
     elif name == "HumanInputRun":
@@ -825,6 +847,8 @@ def __getattr__(name: str) -> Any:
         return _import_merriam_webster_tool()
     elif name == "MetaphorSearchResults":
         return _import_metaphor_search()
+    elif name == "NasaAction":
+        return _import_nasa_tool()
     elif name == "O365CreateDraftMessage":
         return _import_office365_create_draft_message()
     elif name == "O365SearchEvents":
@@ -835,8 +859,6 @@ def __getattr__(name: str) -> Any:
         return _import_office365_send_event()
     elif name == "O365SendMessage":
         return _import_office365_send_message()
-    elif name == "authenticate":
-        return _import_office365_utils()
     elif name == "APIOperation":
         return _import_openapi_utils_api_models()
     elif name == "OpenAPISpec":
@@ -887,6 +909,8 @@ def __getattr__(name: str) -> Any:
         return _import_requests_tool_RequestsPostTool()
     elif name == "RequestsPutTool":
         return _import_requests_tool_RequestsPutTool()
+    elif name == "SteamWebAPIQueryRun":
+        return _import_steam_webapi_tool()
     elif name == "SceneXplainTool":
         return _import_scenexplain_tool()
     elif name == "SearxSearchResults":
@@ -1007,6 +1031,8 @@ __all__ = [
     "GoogleSearchRun",
     "GoogleSerperResults",
     "GoogleSerperRun",
+    "SearchAPIResults",
+    "SearchAPIRun",
     "HumanInputRun",
     "IFTTTWebhook",
     "InfoPowerBITool",
@@ -1022,6 +1048,7 @@ __all__ = [
     "MerriamWebsterQueryRun",
     "MetaphorSearchResults",
     "MoveFileTool",
+    "NasaAction",
     "NavigateBackTool",
     "NavigateTool",
     "O365CreateDraftMessage",
@@ -1044,6 +1071,7 @@ __all__ = [
     "RequestsPatchTool",
     "RequestsPostTool",
     "RequestsPutTool",
+    "SteamWebAPIQueryRun",
     "SceneXplainTool",
     "SearxSearchResults",
     "SearxSearchRun",
@@ -1067,7 +1095,6 @@ __all__ = [
     "YouTubeSearchTool",
     "ZapierNLAListActions",
     "ZapierNLARunAction",
-    "authenticate",
     "format_tool_to_openai_function",
     "tool",
 ]
