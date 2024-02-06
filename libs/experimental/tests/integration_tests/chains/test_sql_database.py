@@ -77,7 +77,7 @@ def test_sql_database_sequential_chain_intermediate_steps() -> None:
     db_chain = SQLDatabaseSequentialChain.from_llm(
         OpenAI(temperature=0), db, return_intermediate_steps=True
     )
-    output = db_chain("What company does Harrison work at?")
+    output = db_chain.run("What company does Harrison work at?")
     expected_output = " Harrison works at Foo."
     assert output["result"] == expected_output
 
